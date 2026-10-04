@@ -203,8 +203,9 @@ function Hero() {
   );
 }
 
+type Ph = { src: string; caption: string };
 function Childhood() {
-  const [a, b, d] = c.childhood.photos;
+  const [a, b, d] = c.childhood.photos as [Ph, Ph, Ph];
   return (
     <section className="relative z-10 mx-auto max-w-md px-6 py-20">
       <SectionTitle hand="once upon a time…" title={c.childhood.title} />
