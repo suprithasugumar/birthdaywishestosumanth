@@ -38,7 +38,7 @@ function Reveal({ children, className = "", delay = 0 }: { children: ReactNode; 
   useEffect(() => {
     const el = ref.current;
     if (!el) return;
-    const io = new IntersectionObserver(([e]) => e.isIntersecting && (setIn(true), io.disconnect()), { threshold: 0.15 });
+    const io = new IntersectionObserver(([e]) => e?.isIntersecting && (setIn(true), io.disconnect()), { threshold: 0.15 });
     io.observe(el);
     return () => io.disconnect();
   }, []);
@@ -74,7 +74,7 @@ function Index() {
   const [secretIdx, setSecretIdx] = useState(0);
 
   const showSecret = () => {
-    setToast(c.secrets[secretIdx % c.secrets.length]);
+    setToast(c.secrets[secretIdx % c.secrets.length] ?? null);
     setSecretIdx((i) => i + 1);
   };
 
