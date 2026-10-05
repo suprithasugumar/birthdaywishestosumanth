@@ -235,6 +235,7 @@ function Childhood() {
 }
 
 function MorePhotos() {
+  if (!c.morePhotos) return null;
   return (
     <section className="relative z-10 mx-auto max-w-md px-6 py-20">
       <SectionTitle hand="little pieces of you…" title={c.morePhotos.title} />
