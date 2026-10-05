@@ -1,7 +1,7 @@
 // ✿ EDIT EVERYTHING HERE ✿
 // All words and photo paths for the website live in this one file.
-// To add photos: put them in the /public/photos folder and keep the same file names
-// (or change the paths below). Missing photos show a soft placeholder automatically.
+// Share photos in chat and they can be placed into these named spaces.
+// Until then, missing photos show a soft placeholder automatically.
 
 export const content = {
   his: "Sumanth",
@@ -24,26 +24,40 @@ export const content = {
 
   childhood: {
     title: "Before I knew you",
-    note: "I wish I could have met this little boy. I think I would have talked his ears off, and he would have quietly let me.",
+    note: "I wish I could have met this little boy. I would tell him that one day he would grow into the person who makes me feel the safest and most loved.",
     photos: [
-      { src: "/photos/baby-1.jpg", caption: "tiny Sumanth, already calm" },
+      { src: "/photos/baby-1.jpg", caption: "the sweetest beginning" },
       { src: "/photos/child-1.jpg", caption: "that smile hasn't changed" },
-      { src: "/photos/child-2.jpg", caption: "future foodie, clearly" },
+      { src: "/photos/child-2.jpg", caption: "little you, already so lovable" },
+      { src: "/photos/child-3.jpg", caption: "the same bright eyes I love now" },
+      { src: "/photos/child-4.jpg", caption: "growing into my favourite person" },
+      { src: "/photos/child-5.jpg", caption: "I wish I knew you then, too" },
+    ],
+  },
+
+  morePhotos: {
+    title: "More pages of you",
+    note: "Your childhood deserves more pages here. These little spaces are waiting for every version of you that I still get to discover.",
+    photos: [
+      { src: "/photos/child-6.jpg", caption: "one tiny memory" },
+      { src: "/photos/child-7.jpg", caption: "a chapter before us" },
+      { src: "/photos/child-8.jpg", caption: "the boy behind your smile" },
+      { src: "/photos/child-9.jpg", caption: "another piece of your story" },
     ],
   },
 
   journey: [
     { when: "2024 · first year", title: "A common friend, a simple hello", text: "Someone introduced us in college like it was nothing. Neither of us knew it was the beginning of everything." },
-    { when: "2024", title: "Best friends", text: "I talked, you listened. I was chaos, you were calm. Somehow, we fit — the tall quiet one and the short loud one." },
-    { when: "2025", title: "The moment I knew", text: "When our alone time became my favourite time. When the comfort you gave me felt like home. That's when I realised — I love you." },
-    { when: "now", title: "Still us", text: "My best friend became my first love. And I'm still choosing you, every single day." },
+    { when: "2024", title: "Best friends", text: "I talked, you listened — and you loved me so openly. Somehow, your expression and my quiet heart found their own perfect language." },
+    { when: "2025", title: "The moment I knew", text: "When our alone time became my favourite time, and every little way you showed your love began to feel like home. That's when I realised — I love you." },
+    { when: "now", title: "Still us", text: "My best friend became my first love. You say and show what you feel so beautifully; even when I struggle to do the same, my heart keeps choosing you every day." },
   ],
 
   gallery: [
     { src: "/photos/us-1.jpg", caption: "that one evening" },
     { src: "/photos/us-2.jpg", caption: "you, being tall" },
     { src: "/photos/us-3.jpg", caption: "me, being loud" },
-    { src: "/photos/us-4.jpg", caption: "food, obviously" },
+    { src: "/photos/us-4.jpg", caption: "one of our little moments" },
     { src: "/photos/us-5.jpg", caption: "my favourite face" },
     { src: "/photos/us-6.jpg", caption: "us, always" },
   ],
@@ -55,7 +69,7 @@ export const content = {
     "You never let your ego stand between us.",
     "Your quiet is the most comfortable sound I know.",
     "You have to bend down to hug me, and you always do.",
-    "You get genuinely happy about food, and it's adorable.",
+    "You express your love so openly that I never have to wonder how you feel.",
     "You forgive my anger faster than I can say sorry.",
     "You make ordinary days feel soft.",
     "You remember the small things I mention once.",
@@ -66,7 +80,7 @@ export const content = {
     "You're easy-going in a way that makes life lighter.",
     "You make me feel safe without saying a word.",
     "You are patient with me, always.",
-    "You share your food with me (sometimes).",
+    "You make me feel chosen in all the little ways that matter.",
     "You never make me feel too much.",
     "Being alone with you is my favourite place.",
     "You are my first love, and you made it beautiful.",
@@ -89,9 +103,11 @@ export const content = {
     paragraphs: [
       "Happy 21st birthday. I've started this letter so many times, because how do you fit someone like you into a few lines?",
       "You came into my life so quietly. A friend of a friend, a hello in first year. And then, without either of us noticing, you became the person I wanted to tell everything to.",
-      "We are such opposites — you're calm, I'm chaos. You listen, I talk. You let things go, and I hold on too tight. But with you, I never feel like too much. You make room for all of me.",
-      "You're my first love. I didn't know love could feel this gentle, this safe, this much like coming home. Thank you for being patient with me, for every silent hug, for every time you chose us.",
-      "I hope this year is as kind to you as you are to me. I'll be right here — talking too much, loving you even more.",
+      "You love me out loud. You say it, show it, and make me feel it in a hundred little ways. I know I don't always express my love as much as you do, and I'm sorry for the moments when my quietness made my heart hard to read. Please know it has always been full of you.",
+      "You're my first love. I didn't know love could feel this gentle, this safe, this much like coming home. Thank you for being patient with me and for never making me guess how loved I am. I promise to try harder to say it, show it, and love you out loud too.",
+      "You are already wonderful, but I know you will keep becoming better, then better, and somehow the very best version of yourself. I can't wait to stand beside every version of you.",
+      "Maybe nine or ten years from now, after all our growing and dreaming, we'll get married and build our own happy little life. I picture us still laughing, still choosing each other, and still feeling lucky that a simple hello became forever.",
+      "I hope this year is as kind to you as you are to me. I'll be right here — learning to express more, loving you more than my words know how to hold.",
     ],
     signoff: "Forever yours,",
     name: "Supritha",
