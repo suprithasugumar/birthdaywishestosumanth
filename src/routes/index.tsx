@@ -91,6 +91,7 @@ function Index() {
 
       <Hero />
       <Childhood />
+      <MorePhotos />
       <Journey />
       <Gallery />
       <Reasons onDone={() => setToast("all 21 unfolded… and there are a million more 🤍")} />
@@ -205,7 +206,8 @@ function Hero() {
 
 type Ph = { src: string; caption: string };
 function Childhood() {
-  const [a, b, d] = c.childhood.photos as [Ph, Ph, Ph];
+  const [a, ...rest] = c.childhood.photos as Ph[];
+  if (!a) return null;
   return (
     <section className="relative z-10 mx-auto max-w-md px-6 py-20">
       <SectionTitle hand="once upon a time…" title={c.childhood.title} />
@@ -217,10 +219,10 @@ function Childhood() {
         </div>
       </Reveal>
       <div className="mt-8 grid grid-cols-2 gap-5">
-        {[b, d].map((p, i) => (
+        {rest.map((p, i) => (
           <Reveal key={p.src} delay={i * 150}>
-            <div className={`page relative bg-card p-2 pb-8 ${i ? "mt-6 -rotate-3" : "rotate-2"}`}>
-              <div className={`washi absolute -top-2 right-3 h-4 w-10 rotate-12 ${i ? "bg-earth" : "bg-sage"}`} />
+            <div className={`page relative bg-card p-2 pb-8 ${i % 2 ? "mt-6 -rotate-3" : "rotate-2"}`}>
+              <div className={`washi absolute -top-2 right-3 h-4 w-10 rotate-12 ${i % 2 ? "bg-earth" : "bg-sage"}`} />
               <Photo src={p.src} alt={p.caption} className="aspect-square w-full" />
               <p className="mt-2 text-center font-hand text-lg leading-tight">{p.caption}</p>
             </div>
@@ -228,6 +230,28 @@ function Childhood() {
         ))}
       </div>
       <Reveal><p className="mt-10 text-center font-hand text-2xl leading-snug text-ink/75">{c.childhood.note}</p></Reveal>
+    </section>
+  );
+}
+
+function MorePhotos() {
+  return (
+    <section className="relative z-10 mx-auto max-w-md px-6 py-20">
+      <SectionTitle hand="little pieces of you…" title={c.morePhotos.title} />
+      <Reveal>
+        <p className="-mt-5 mb-10 font-hand text-2xl leading-snug text-ink/70">{c.morePhotos.note}</p>
+      </Reveal>
+      <div className="grid grid-cols-2 gap-x-5 gap-y-8">
+        {c.morePhotos.photos.map((p, i) => (
+          <Reveal key={p.src} delay={(i % 2) * 120}>
+            <div className={`page relative bg-card p-2 pb-8 ${i % 2 ? "-rotate-2" : "rotate-2"}`}>
+              <div className={`washi absolute -top-2 left-1/2 h-4 w-12 -translate-x-1/2 ${noteColors[i % noteColors.length]}`} />
+              <Photo src={p.src} alt={p.caption} className="aspect-[4/5] w-full" />
+              <p className="mt-3 text-center font-hand text-lg leading-tight">{p.caption}</p>
+            </div>
+          </Reveal>
+        ))}
+      </div>
     </section>
   );
 }
