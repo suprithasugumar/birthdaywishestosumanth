@@ -1,5 +1,5 @@
-import { createFileRoute } from "@tanstack/react-router";
-import { useEffect, useRef, useState, type ReactNode } from "react";
+import { ClientOnly, createFileRoute } from "@tanstack/react-router";
+import { lazy, Suspense, useEffect, useRef, useState, type ReactNode } from "react";
 import { content as c } from "@/content";
 
 export const Route = createFileRoute("/")({
@@ -15,6 +15,8 @@ export const Route = createFileRoute("/")({
   }),
   component: Index,
 });
+
+const PhotoScrapbook = lazy(() => import("@/components/photo-scrapbook"));
 
 /* ---------- helpers ---------- */
 
@@ -90,10 +92,8 @@ function Index() {
       <button aria-label="a hidden note" onClick={showSecret} className="absolute left-6 top-[380vh] z-20 text-xl opacity-40 f-float">✨</button>
 
       <Hero />
-      <Childhood />
-      <MorePhotos />
+      <Scrapbook />
       <Journey />
-      <Gallery />
       <Reasons onDone={() => setToast("all 21 unfolded… and there are a million more 🤍")} />
       <HoldHeart onReveal={() => setToast(c.holdSecret)} />
       <Letter />
@@ -204,55 +204,19 @@ function Hero() {
   );
 }
 
-type Ph = { src: string; caption: string };
-function Childhood() {
-  const [a, ...rest] = c.childhood.photos as Ph[];
-  if (!a) return null;
+function Scrapbook() {
   return (
-    <section className="relative z-10 mx-auto max-w-md px-6 py-20">
-      <SectionTitle hand="once upon a time…" title={c.childhood.title} />
-      <Reveal>
-        <div className="page relative -rotate-1 bg-card p-3 pb-10">
-          <div className="washi absolute -top-3 left-1/2 h-5 w-14 -translate-x-1/2 bg-sun" />
-          <Photo src={a.src} alt={a.caption} className="aspect-[4/5] w-full" />
-          <p className="mt-3 text-center font-hand text-2xl">{a.caption}</p>
-        </div>
-      </Reveal>
-      <div className="mt-8 grid grid-cols-2 gap-5">
-        {rest.map((p, i) => (
-          <Reveal key={p.src} delay={i * 150}>
-            <div className={`page relative bg-card p-2 pb-8 ${i % 2 ? "mt-6 -rotate-3" : "rotate-2"}`}>
-              <div className={`washi absolute -top-2 right-3 h-4 w-10 rotate-12 ${i % 2 ? "bg-earth" : "bg-sage"}`} />
-              <Photo src={p.src} alt={p.caption} className="aspect-square w-full" />
-              <p className="mt-2 text-center font-hand text-lg leading-tight">{p.caption}</p>
-            </div>
-          </Reveal>
-        ))}
+    <section className="relative z-10 mx-auto w-full max-w-4xl px-5 py-14" aria-labelledby="scrapbook-title">
+      <div className="mb-8 text-center">
+        <p className="mb-2 font-hand text-2xl text-sage">little pieces of you…</p>
+        <h2 id="scrapbook-title" className="font-display text-3xl font-bold">Our scrapbook</h2>
       </div>
-      <Reveal><p className="mt-10 text-center font-hand text-2xl leading-snug text-ink/75">{c.childhood.note}</p></Reveal>
-    </section>
-  );
-}
-
-function MorePhotos() {
-  if (!c.morePhotos) return null;
-  return (
-    <section className="relative z-10 mx-auto max-w-md px-6 py-20">
-      <SectionTitle hand="little pieces of you…" title={c.morePhotos.title} />
-      <Reveal>
-        <p className="-mt-5 mb-10 font-hand text-2xl leading-snug text-ink/70">{c.morePhotos.note}</p>
-      </Reveal>
-      <div className="grid grid-cols-2 gap-x-5 gap-y-8">
-        {c.morePhotos.photos.map((p, i) => (
-          <Reveal key={p.src} delay={(i % 2) * 120}>
-            <div className={`page relative bg-card p-2 pb-8 ${i % 2 ? "-rotate-2" : "rotate-2"}`}>
-              <div className={`washi absolute -top-2 left-1/2 h-4 w-12 -translate-x-1/2 ${noteColors[i % noteColors.length]}`} />
-              <Photo src={p.src} alt={p.caption} className="aspect-[4/5] w-full" />
-              <p className="mt-3 text-center font-hand text-lg leading-tight">{p.caption}</p>
-            </div>
-          </Reveal>
-        ))}
-      </div>
+      <ClientOnly fallback={<div className="grid h-96 place-items-center font-hand text-xl text-sage">Opening our scrapbook…</div>}>
+        <Suspense fallback={<div className="grid h-96 place-items-center font-hand text-xl text-sage">Opening our scrapbook…</div>}>
+          <PhotoScrapbook />
+        </Suspense>
+      </ClientOnly>
+      <p className="mx-auto mt-10 max-w-md text-center font-hand text-2xl leading-snug text-ink/75">{c.childhood.note}</p>
     </section>
   );
 }
@@ -282,26 +246,6 @@ function Journey() {
           <div className="text-center"><div className="mx-auto mb-1 h-10 w-3 rounded-full bg-earth/60" />me · chaos</div>
         </div>
       </Reveal>
-    </section>
-  );
-}
-
-function Gallery() {
-  const tapes = ["bg-sun", "bg-earth", "bg-sage"];
-  return (
-    <section className="relative z-10 mx-auto max-w-md px-6 py-20">
-      <SectionTitle hand="the memories…" title="Our scrapbook" />
-      <div className="grid grid-cols-2 gap-6">
-        {c.gallery.map((p, i) => (
-          <Reveal key={p.src} delay={(i % 2) * 120}>
-            <div className={`page relative bg-card p-2 pb-8 transition-transform hover:rotate-0 active:scale-105 ${i % 2 ? "mt-8 -rotate-3" : "rotate-2"}`}>
-              <div className={`washi absolute -top-3 left-1/2 h-5 w-12 -translate-x-1/2 ${tapes[i % 3]}`} />
-              <Photo src={p.src} alt={p.caption} className="aspect-[4/5] w-full" />
-              <p className="mt-3 text-center font-hand text-lg">{p.caption}</p>
-            </div>
-          </Reveal>
-        ))}
-      </div>
     </section>
   );
 }
