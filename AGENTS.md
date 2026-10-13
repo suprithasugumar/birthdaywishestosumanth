@@ -8,3 +8,5 @@
 > Commits you push to the connected branch sync back to Lovable and show up in
 > the editor, so keep the branch in a working state.
 <!-- LOVABLE:END -->
+
+- Keep photo collections in the client-only photo scrapbook using react-pageflip, with content sourced from the shared content module, so page-turning replaces scrolling photo grids without changing the other birthday sections.

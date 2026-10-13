@@ -14,7 +14,7 @@ export const content = {
   opening: {
     tag: "Chapter 21",
     hint: "tap the envelope, my love",
-    line: "Before you scroll — I want you to know every page of this was made thinking of you.",
+    line: "Before you turn the pages — I want you to know every one was made thinking of you.",
   },
 
   hero: {

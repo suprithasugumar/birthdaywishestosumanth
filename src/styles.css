@@ -110,6 +110,16 @@
 .flip-face { backface-visibility: hidden; }
 .flip-back { transform: rotateY(180deg); }
 
+.scrapbook { width: 100%; outline-offset: 8px; }
+.scrapbook-stage { width: 100%; min-height: 375px; display: flex; justify-content: center; }
+.scrapbook-engine { margin: auto; }
+.scrapbook-page { background: var(--paper); color: var(--ink); border: 1px solid var(--border); box-shadow: var(--shadow-page); overflow: hidden; }
+.scrapbook-page.--left { border-right: 2px solid var(--clay); }
+.scrapbook-page.--right { border-left: 2px solid var(--clay); }
+.scrapbook-cover { background: var(--note-green); border: 5px double var(--sage); }
+.book-polaroid { position: relative; margin: 0; padding: 9px 9px 16px; background: var(--card); box-shadow: var(--shadow-page); transform: rotate(-2deg); }
+.book-photo { width: 100%; aspect-ratio: 4 / 5; }
+
 @media (prefers-reduced-motion: reduce) {
   *, *::before, *::after { animation: none !important; transition-duration: .01ms !important; scroll-behavior: auto !important; }
   .reveal { opacity: 1; transform: none; }
