@@ -1,9 +1,16 @@
 import { forwardRef, useEffect, useRef, useState, type ReactNode } from "react";
 import HTMLFlipBook from "react-pageflip";
-import type { PageFlip } from "page-flip";
 import { ChevronLeft, ChevronRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { content as c } from "@/content";
+
+type BookController = {
+  getOrientation: () => string;
+  turnToNextPage: () => void;
+  turnToPrevPage: () => void;
+  flipNext: () => void;
+  flipPrev: () => void;
+};
 
 const BookPage = forwardRef<HTMLDivElement, { children: ReactNode; cover?: boolean }>(
   function BookPage({ children, cover = false }, ref) {
@@ -23,7 +30,7 @@ function BookPhoto({ src, caption }: { src: string; caption: string }) {
 }
 
 export default function PhotoScrapbook() {
-  const ref = useRef<{ pageFlip: () => PageFlip }>(null);
+  const ref = useRef<{ pageFlip: () => BookController }>(null);
   const [page, setPage] = useState(0);
   const [portrait, setPortrait] = useState(true);
   const [ready, setReady] = useState(false);
