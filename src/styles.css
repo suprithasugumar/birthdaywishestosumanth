@@ -117,8 +117,9 @@
 .scrapbook-page.--left { border-right: 2px solid var(--clay); }
 .scrapbook-page.--right { border-left: 2px solid var(--clay); }
 .scrapbook-cover { background: var(--note-green); border: 5px double var(--sage); }
-.book-polaroid { position: relative; margin: 0; padding: 9px 9px 16px; background: var(--card); box-shadow: var(--shadow-page); transform: rotate(-2deg); }
-.book-photo { width: 100%; height: 280px; object-fit: contain; background: var(--clay); }
+.book-polaroid { position: relative; display: flex; flex-direction: column; flex: 1; min-height: 0; margin: 0; padding: 9px 9px 16px; background: var(--card); box-shadow: var(--shadow-page); transform: rotate(-2deg); }
+.book-photo { width: 100%; height: 0; flex: 1; min-height: 0; object-fit: contain; background: var(--clay); }
+.book-polaroid figcaption { flex-shrink: 0; }
 
 @media (prefers-reduced-motion: reduce) {
   *, *::before, *::after { animation: none !important; transition-duration: .01ms !important; scroll-behavior: auto !important; }
