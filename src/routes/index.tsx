@@ -1,8 +1,11 @@
 import { ClientOnly, createFileRoute } from "@tanstack/react-router";
 import { lazy, Suspense, useEffect, useRef, useState, type ReactNode } from "react";
 import { content as c } from "@/content";
+import { SweetSurprises } from "@/components/sweet-surprises";
+import { scrapbookPhotosQuery } from "@/lib/scrapbook-query";
 
 export const Route = createFileRoute("/")({
+  loader: ({ context }) => context.queryClient.ensureQueryData(scrapbookPhotosQuery),
   head: () => ({
     meta: [
       { title: `Happy 21st, ${c.his} ♥` },
@@ -97,6 +100,7 @@ function Index() {
       <Reasons onDone={() => setToast("all 21 unfolded… and there are a million more 🤍")} />
       <HoldHeart onReveal={() => setToast(c.holdSecret)} />
       <Letter />
+      <SweetSurprises />
       <Ending />
 
       <Toast text={toast} onClose={() => setToast(null)} />

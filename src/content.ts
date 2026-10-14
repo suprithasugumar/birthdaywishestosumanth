@@ -3,6 +3,23 @@
 // Share photos in chat and they can be placed into these named spaces.
 // Until then, missing photos show a soft placeholder automatically.
 
+import m14 from "@/assets/memory-14.jpg.asset.json";
+import m32 from "@/assets/memory-32.jpg.asset.json";
+import m8 from "@/assets/memory-8.jpg.asset.json";
+import m7 from "@/assets/memory-7.jpg.asset.json";
+import m11 from "@/assets/memory-11.jpg.asset.json";
+import m9 from "@/assets/memory-9.jpg.asset.json";
+import m10 from "@/assets/memory-10.jpg.asset.json";
+import m5 from "@/assets/memory-5.jpg.asset.json";
+import m35 from "@/assets/memory-35.jpg.asset.json";
+import m39 from "@/assets/memory-39.jpg.asset.json";
+import m30 from "@/assets/memory-30.jpg.asset.json";
+import m31 from "@/assets/memory-31.jpg.asset.json";
+import m15 from "@/assets/memory-15.jpg.asset.json";
+import m18 from "@/assets/memory-18.jpg.asset.json";
+import m19 from "@/assets/memory-19.jpg.asset.json";
+import m36 from "@/assets/memory-36.jpg.asset.json";
+
 export const content = {
   his: "Sumanth",
   her: "Supritha",
@@ -19,19 +36,19 @@ export const content = {
 
   hero: {
     subtitle: "A little scrapbook of you, of us, and of the year I learned what first love feels like.",
-    photo: "/photos/us-hero.jpg",
+    photo: m15.url,
   },
 
   childhood: {
     title: "Before I knew you",
     note: "I wish I could have met this little boy. I would tell him that one day he would grow into the person who makes me feel the safest and most loved.",
     photos: [
-      { src: "/photos/baby-1.jpg", caption: "the sweetest beginning" },
-      { src: "/photos/child-1.jpg", caption: "that smile hasn't changed" },
-      { src: "/photos/child-2.jpg", caption: "little you, already so lovable" },
-      { src: "/photos/child-3.jpg", caption: "the same bright eyes I love now" },
-      { src: "/photos/child-4.jpg", caption: "growing into my favourite person" },
-      { src: "/photos/child-5.jpg", caption: "I wish I knew you then, too" },
+      { src: m14.url, caption: "little you, already so lovable" },
+      { src: m32.url, caption: "that smile hasn't changed" },
+      { src: m8.url, caption: "a tiny chapter of my favourite story" },
+      { src: m7.url, caption: "the world was already brighter with you" },
+      { src: m11.url, caption: "a little star, long before I knew you" },
+      { src: m9.url, caption: "small boy, such a big spirit" },
     ],
   },
 
@@ -39,10 +56,12 @@ export const content = {
     title: "More pages of you",
     note: "Your childhood deserves more pages here. These little spaces are waiting for every version of you that I still get to discover.",
     photos: [
-      { src: "/photos/child-6.jpg", caption: "one tiny memory" },
-      { src: "/photos/child-7.jpg", caption: "a chapter before us" },
-      { src: "/photos/child-8.jpg", caption: "the boy behind your smile" },
-      { src: "/photos/child-9.jpg", caption: "another piece of your story" },
+      { src: m31.url, caption: "already this charming? not fair" },
+      { src: m10.url, caption: "all the little things that made you, you" },
+      { src: m5.url, caption: "I wish I could have known every version" },
+      { src: m35.url, caption: "a chapter before our hello" },
+      { src: m39.url, caption: "little adventures, enormous dreams" },
+      { src: m30.url, caption: "growing into the person I get to love" },
     ],
   },
 
@@ -54,12 +73,10 @@ export const content = {
   ],
 
   gallery: [
-    { src: "/photos/us-1.jpg", caption: "that one evening" },
-    { src: "/photos/us-2.jpg", caption: "you, being tall" },
-    { src: "/photos/us-3.jpg", caption: "me, being loud" },
-    { src: "/photos/us-4.jpg", caption: "one of our little moments" },
-    { src: "/photos/us-5.jpg", caption: "my favourite face" },
-    { src: "/photos/us-6.jpg", caption: "us, always" },
+    { src: m15.url, caption: "my favourite place: next to you" },
+    { src: m18.url, caption: "an ordinary day, my extraordinary person" },
+    { src: m19.url, caption: "us, in our own little world" },
+    { src: m36.url, caption: "this is what home feels like" },
   ],
 
   // 21 reasons — one for each year. Change any you like!
@@ -113,9 +130,21 @@ export const content = {
     name: "Supritha",
   },
 
+  surprises: {
+    notes: [
+      { title: "you miss me", text: "Put your hand over your heart. Somewhere, I'm loving you at this very same moment. The distance doesn't get a vote. — your Supritha" },
+      { title: "today feels heavy", text: "You don't have to be the strong one every minute. Come as you are, tired heart and all. I am proud of you, even on the days you can't be proud of yourself." },
+      { title: "you doubt yourself", text: "I wish you could borrow my eyes for a minute. You would see someone kind, capable, and so worth loving. Better, then better, then your very best — I'll be cheering for all of it." },
+      { title: "we've had a little fight", text: "Even when my words come out wrong, I am still on your team. I'm sorry for the times I make my love hard to hear. Let's choose a softer hello, and begin again. Always us." },
+    ],
+    garden: ["For your patience with my quiet heart.", "For every time you love me out loud.", "For the best friend I found in you.", "For the person you're still becoming.", "For every ordinary tomorrow with you.", "For us. Again, and again, and again."],
+    dream: "Nine or ten years from now… maybe it's our wedding day. I get to look at you and think: that's my best friend, my first love, my forever person. Until then, let's grow into our dreams, one tiny tomorrow at a time.",
+    hug: "Come here, my tall boy. Imagine my arms around you, holding on a little longer than usual. No fixing anything. Just you, me, and a very tight hug. ♡",
+  },
+
   ending: {
     title: "Twenty-one years of you",
     text: "and I'm just grateful I get to be part of the story now. Happy birthday, my love. You are so deeply, deeply loved.",
-    photo: "/photos/us-ending.jpg",
+    photo: m36.url,
   },
 };

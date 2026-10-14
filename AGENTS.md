@@ -10,3 +10,6 @@
 <!-- LOVABLE:END -->
 
 - Keep photo collections in the client-only photo scrapbook using react-pageflip, with content sourced from the shared content module, so page-turning replaces scrolling photo grids without changing the other birthday sections.
+- Store curated media as CDN asset pointers and keep editable captions in the shared content module so the photo library stays lightweight.
+- Gate phone uploads through verified owner membership and storage RLS; issue public viewing links only for saved scrapbook photo rows so private bucket contents stay inaccessible.
+- Keep new emotional interactions in a dedicated section with copy in shared content so other birthday sections stay unchanged.
