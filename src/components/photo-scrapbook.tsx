@@ -3,6 +3,9 @@ import HTMLFlipBook from "react-pageflip";
 import { ChevronLeft, ChevronRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { content as c } from "@/content";
+import { useSuspenseQuery } from "@tanstack/react-query";
+import { scrapbookPhotosQuery } from "@/lib/scrapbook-query";
+import { PhotoUpload } from "@/components/photo-upload";
 
 type BookController = {
   getOrientation: () => string;
@@ -43,10 +46,13 @@ export default function PhotoScrapbook() {
     media.addEventListener("change", update);
     return () => media.removeEventListener("change", update);
   }, []);
+  const { data: uploaded } = useSuspenseQuery(scrapbookPhotosQuery);
   const photos = [
     ...c.childhood.photos.map((p) => ({ ...p, chapter: c.childhood.title })),
     ...(c.morePhotos?.photos ?? []).map((p) => ({ ...p, chapter: c.morePhotos?.title ?? c.childhood.title })),
+    ...uploaded.filter((p) => p.category === "childhood").map((p) => ({ ...p, chapter: c.childhood.title })),
     ...c.gallery.map((p) => ({ ...p, chapter: "You & me" })),
+    ...uploaded.filter((p) => p.category === "couple").map((p) => ({ ...p, chapter: "You & me" })),
   ];
   const total = photos.length + 2;
   const last = page >= total - (portrait ? 1 : 2);
@@ -62,7 +68,7 @@ export default function PhotoScrapbook() {
       if (e.key === "ArrowLeft" && page > 0) { e.preventDefault(); turn("previous"); }
     }}>
       <div className="scrapbook-stage">
-        <HTMLFlipBook ref={ref} width={340} height={490} size="stretch" minWidth={260} maxWidth={380} minHeight={375} maxHeight={548}
+        <HTMLFlipBook key={photos.length} ref={ref} width={340} height={490} size="stretch" minWidth={260} maxWidth={380} minHeight={375} maxHeight={548}
           startPage={0} drawShadow flippingTime={750} usePortrait startZIndex={10} autoSize maxShadowOpacity={0.18}
           showCover mobileScrollSupport clickEventForward useMouseEvents swipeDistance={30} showPageCorners disableFlipByClick={false}
           className="scrapbook-engine" style={{}}
@@ -104,6 +110,7 @@ export default function PhotoScrapbook() {
         <p className="font-hand text-xl text-ink/60" role="status" aria-live="polite">{page === 0 ? "the cover" : last ? "with love, always" : `${page} / ${photos.length}`}</p>
         <Button variant="outline" size="icon" className="size-11 rounded-full" aria-label="Next scrapbook page" title="Next page" disabled={!ready || last || turning} onClick={() => turn("next")}><ChevronRight /></Button>
       </div>
+      <PhotoUpload />
     </div>
   );
 }

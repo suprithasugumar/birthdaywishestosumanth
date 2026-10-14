@@ -34,6 +34,7 @@ export function PhotoUpload() {
   }
   async function upload(event: FormEvent) {
     event.preventDefault();
+    const form = event.currentTarget as HTMLFormElement;
     if (!owner || !file || !caption.trim()) return;
     if (!/image\/(jpeg|png|webp)/.test(file.type)) { setMessage("Please choose a JPG, PNG, or WebP photo. For HEIC, export it as JPG first."); return; }
     if (file.size > 10 * 1024 * 1024) { setMessage("Please choose a photo smaller than 10 MB."); return; }
@@ -47,7 +48,7 @@ export function PhotoUpload() {
       if (saveError) { await supabase.storage.from("scrapbook-photos").remove([path]); throw saveError; }
       await queryClient.invalidateQueries({ queryKey: ["scrapbook-photos"] });
       setCaption(""); setFile(null); setMessage("Your memory is now in the scrapbook. ♡");
-      event.currentTarget.reset();
+      form.reset();
     } catch { setMessage("The photo couldn't be saved. Please try again."); }
     finally { setBusy(false); }
   }
