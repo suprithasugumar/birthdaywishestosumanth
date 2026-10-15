@@ -68,8 +68,9 @@ function Toast({ text, onClose }: { text: string | null; onClose: () => void }) 
   );
 }
 
-const noteColors = ["bg-note-yellow", "bg-note-pink", "bg-note-blue", "bg-note-green"];
-const tilts = ["-rotate-2", "rotate-1", "rotate-2", "-rotate-1"];
+const noteColors = ["bg-note-pink", "bg-note-yellow", "bg-note-blue", "bg-note-green"];
+const noteDoodles = ["🌸", "🧸", "💌", "⭐", "🍓", "☁️", "🎀"];
+const tilts = ["-rotate-2", "rotate-1", "rotate-2", "-rotate-1", "rotate-3", "-rotate-3"];
 
 /* ---------- page ---------- */
 
@@ -243,13 +244,6 @@ function Journey() {
           </Reveal>
         ))}
       </div>
-      <Reveal>
-        <div className="mt-14 flex items-end justify-center gap-10 font-hand text-xl text-ink/60">
-          <div className="text-center"><div className="mx-auto mb-1 h-16 w-3 rounded-full bg-sage/60" />him · calm</div>
-          <div className="text-earth f-heart text-2xl pb-6">♥</div>
-          <div className="text-center"><div className="mx-auto mb-1 h-10 w-3 rounded-full bg-earth/60" />me · chaos</div>
-        </div>
-      </Reveal>
     </section>
   );
 }
@@ -270,15 +264,15 @@ function Reasons({ onDone }: { onDone: () => void }) {
       <p className="-mt-6 mb-8 font-hand text-xl text-sage">tap each note to unfold it · {open.size}/21</p>
       <div className="grid grid-cols-3 gap-3">
         {c.reasons.map((r, i) => (
-          <button key={i} onClick={() => toggle(i)} className={`flip aspect-square ${tilts[i % 4]} ${open.has(i) ? "on col-span-3 aspect-auto" : ""}`}>
+          <button key={i} onClick={() => toggle(i)} className={`flip aspect-square transition-transform duration-300 hover:scale-105 hover:-translate-y-1 active:scale-95 ${tilts[i % tilts.length]} ${open.has(i) ? "on col-span-3 aspect-auto" : ""}`}>
             <div className="flip-inner relative size-full min-h-24">
-              <div className={`flip-face page absolute inset-0 grid place-items-center ${noteColors[i % 4]}`}>
-                <span className="font-display text-3xl font-semibold text-earth/80">{String(i + 1).padStart(2, "0")}</span>
+              <div className={`flip-face page absolute inset-0 flex flex-col items-center justify-center gap-1 rounded-lg ${noteColors[i % 4]}`}>
+                <span className="text-2xl" aria-hidden>{noteDoodles[i % noteDoodles.length]}</span>
+                <span className="font-display text-sm font-semibold text-earth/70">{String(i + 1).padStart(2, "0")}</span>
               </div>
-              <div className={`flip-face flip-back page relative grid min-h-24 place-items-center p-5 ${noteColors[i % 4]}`}>
-                <p className="font-hand text-2xl leading-snug text-ink/85">
-                  <span className="text-earth">{i + 1}.</span> {r}
-                </p>
+              <div className={`flip-face flip-back page relative grid min-h-24 place-items-center rounded-lg p-5 ${noteColors[i % 4]}`}>
+                <span className="absolute right-2 top-1 text-sm text-earth" aria-hidden>♥</span>
+                <p className="font-hand text-2xl leading-snug text-ink/85">{r}</p>
               </div>
             </div>
           </button>
@@ -354,10 +348,17 @@ function Ending() {
   return (
     <section className="relative z-10 mx-auto max-w-md px-6 pb-32 pt-16 text-center">
       <Reveal>
-        <div className="page relative mx-auto w-56 rotate-2 bg-card p-2 pb-10">
-          <div className="washi absolute -top-3 left-1/2 h-5 w-14 -translate-x-1/2 bg-earth" />
-          <Photo src={c.ending.photo} alt="us" className="aspect-square w-full" />
-          <p className="mt-3 font-hand text-xl">{c.his} & {c.her}</p>
+        <div className="flex flex-wrap items-start justify-center gap-6">
+          <div className="page relative w-48 rotate-2 bg-card p-2 pb-10">
+            <div className="washi absolute -top-3 left-1/2 h-5 w-14 -translate-x-1/2 bg-earth" />
+            <Photo src={c.ending.photo} alt="us" className="aspect-square w-full" />
+            <p className="mt-3 font-hand text-xl">{c.his} & {c.her}</p>
+          </div>
+          <div className="page relative w-48 -rotate-2 bg-card p-2 pb-10">
+            <div className="washi absolute -top-3 left-1/2 h-5 w-14 -translate-x-1/2 bg-sage" />
+            <Photo src={c.ending.photo2} alt="us under the tree" className="aspect-square w-full" />
+            <p className="mt-3 font-hand text-xl">{c.ending.photo2caption}</p>
+          </div>
         </div>
       </Reveal>
       <Reveal delay={200}>
