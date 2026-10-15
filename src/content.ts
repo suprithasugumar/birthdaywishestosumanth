@@ -19,6 +19,7 @@ import m15 from "@/assets/memory-15.jpg.asset.json";
 import m18 from "@/assets/memory-18.jpg.asset.json";
 import m19 from "@/assets/memory-19.jpg.asset.json";
 import m36 from "@/assets/memory-36.jpg.asset.json";
+import tree from "@/assets/us-under-the-tree.jpg.asset.json";
 
 export const content = {
   his: "Sumanth",
@@ -67,7 +68,7 @@ export const content = {
 
   journey: [
     { when: "2024 · first year", title: "A common friend, a simple hello", text: "Someone introduced us in college like it was nothing. Neither of us knew it was the beginning of everything." },
-    { when: "2024", title: "Best friends", text: "I talked, you listened — and you loved me so openly. Somehow, your expression and my quiet heart found their own perfect language." },
+    { when: "2024", title: "Best friends", text: "I talked, you listened — and you loved me so openly. Somewhere between all the laughing and the late-night talks, my best friend quietly became my favourite person." },
     { when: "2025", title: "The moment I knew", text: "When our alone time became my favourite time, and every little way you showed your love began to feel like home. That's when I realised — I love you." },
     { when: "now", title: "Still us", text: "My best friend became my first love. You say and show what you feel so beautifully; even when I struggle to do the same, my heart keeps choosing you every day." },
   ],
@@ -81,27 +82,27 @@ export const content = {
 
   // 21 reasons — one for each year. Change any you like!
   reasons: [
-    "You listen to every word I say, even the ones that don't make sense.",
-    "You stay calm when I'm a storm, and somehow I calm down too.",
-    "You never let your ego stand between us.",
-    "Your quiet is the most comfortable sound I know.",
-    "You have to bend down to hug me, and you always do.",
-    "You express your love so openly that I never have to wonder how you feel.",
-    "You forgive my anger faster than I can say sorry.",
-    "You make ordinary days feel soft.",
-    "You remember the small things I mention once.",
-    "You were my best friend before you were anything else.",
-    "You let me be exactly who I am — loud, messy, me.",
-    "Your face when you're trying not to laugh at me.",
-    "You are handsome without even trying (stop it).",
-    "You're easy-going in a way that makes life lighter.",
-    "You make me feel safe without saying a word.",
-    "You are patient with me, always.",
-    "You make me feel chosen in all the little ways that matter.",
-    "You never make me feel too much.",
-    "Being alone with you is my favourite place.",
-    "You are my first love, and you made it beautiful.",
-    "Because you're you. That's the whole reason, really.",
+    "You make me feel safe without even trying.",
+    "You remember the tiny things I only said once.",
+    "You look handsome even when you just woke up (it's very unfair).",
+    "You still listen when I'm rambling about nothing.",
+    "You always say \"okay, okay\" when I'm being dramatic.",
+    "You make me feel like I'm enough, just as I am.",
+    "You make boring days feel special.",
+    "You love me loudly, so I never have to guess.",
+    "You say sorry first, even when we're both wrong.",
+    "You make the future feel exciting instead of scary.",
+    "Home feels like wherever you are.",
+    "Your hugs fix my whole day.",
+    "You're the only one who can handle my mood swings with a straight face.",
+    "You get a little shy when I compliment you, and I love it.",
+    "You notice when I'm quiet and ask what's wrong.",
+    "You make me feel heard, not just listened to.",
+    "You make \"just sitting together\" my favourite plan.",
+    "You're the first person I want to tell everything to.",
+    "You choose me every day, in small ways and big ones.",
+    "Because you're you, and that's the whole reason. ♥",
+    "And there are a hundred more reasons I'm still collecting. ♥",
   ],
 
   // Little hidden notes — found by tapping the floating flowers.
@@ -137,7 +138,10 @@ export const content = {
       { title: "you doubt yourself", text: "I wish you could borrow my eyes for a minute. You would see someone kind, capable, and so worth loving. Better, then better, then your very best — I'll be cheering for all of it." },
       { title: "we've had a little fight", text: "Even when my words come out wrong, I am still on your team. I'm sorry for the times I make my love hard to hear. Let's choose a softer hello, and begin again. Always us." },
     ],
-    garden: ["For your patience with my quiet heart.", "For every time you love me out loud.", "For the best friend I found in you.", "For the person you're still becoming.", "For every ordinary tomorrow with you.", "For us. Again, and again, and again."],
+    wish: {
+      hint: "twenty-one little candles, one for every year of you. close your eyes, make a wish… then tap each flame to blow it out",
+      done: "All twenty-one are out. Whatever you wished for, I hope life gives you double — and I hope I'm right there beside you when it comes true. ♥",
+    },
     dream: "Nine or ten years from now… maybe it's our wedding day. I get to look at you and think: that's my best friend, my first love, my forever person. Until then, let's grow into our dreams, one tiny tomorrow at a time.",
     hug: "Come here, my tall boy. Imagine my arms around you, holding on a little longer than usual. No fixing anything. Just you, me, and a very tight hug. ♡",
   },
@@ -146,5 +150,7 @@ export const content = {
     title: "Twenty-one years of you",
     text: "and I'm just grateful I get to be part of the story now. Happy birthday, my love. You are so deeply, deeply loved.",
     photo: m36.url,
+    photo2: tree.url,
+    photo2caption: "us, under our favourite tree",
   },
 };
