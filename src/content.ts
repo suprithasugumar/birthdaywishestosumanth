@@ -84,7 +84,7 @@ export const content = {
   reasons: [
     "You make me feel safe without even trying.",
     "You remember the tiny things I only said once.",
-    "You look handsome even when you just woke up (it's very unfair).",
+    "You look handsome and charming when you're not even trying.",
     "You still listen when I'm rambling about nothing.",
     "You always say \"okay, okay\" when I'm being dramatic.",
     "You make me feel like I'm enough, just as I am.",
@@ -138,10 +138,6 @@ export const content = {
       { title: "you doubt yourself", text: "I wish you could borrow my eyes for a minute. You would see someone kind, capable, and so worth loving. Better, then better, then your very best — I'll be cheering for all of it." },
       { title: "we've had a little fight", text: "Even when my words come out wrong, I am still on your team. I'm sorry for the times I make my love hard to hear. Let's choose a softer hello, and begin again. Always us." },
     ],
-    wish: {
-      hint: "twenty-one little candles, one for every year of you. close your eyes, make a wish… then tap each flame to blow it out",
-      done: "All twenty-one are out. Whatever you wished for, I hope life gives you double — and I hope I'm right there beside you when it comes true. ♥",
-    },
     dream: "Nine or ten years from now… maybe it's our wedding day. I get to look at you and think: that's my best friend, my first love, my forever person. Until then, let's grow into our dreams, one tiny tomorrow at a time.",
     hug: "Come here, my tall boy. Imagine my arms around you, holding on a little longer than usual. No fixing anything. Just you, me, and a very tight hug. ♡",
   },
@@ -149,8 +145,7 @@ export const content = {
   ending: {
     title: "Twenty-one years of you",
     text: "and I'm just grateful I get to be part of the story now. Happy birthday, my love. You are so deeply, deeply loved.",
-    photo: m36.url,
-    photo2: tree.url,
-    photo2caption: "us, under our favourite tree",
+    photo: tree.url,
+    caption: "Sumanth & Supritha",
   },
 };

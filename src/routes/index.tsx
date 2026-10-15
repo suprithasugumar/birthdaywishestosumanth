@@ -348,16 +348,11 @@ function Ending() {
   return (
     <section className="relative z-10 mx-auto max-w-md px-6 pb-32 pt-16 text-center">
       <Reveal>
-        <div className="flex flex-wrap items-start justify-center gap-6">
-          <div className="page relative w-48 rotate-2 bg-card p-2 pb-10">
-            <div className="washi absolute -top-3 left-1/2 h-5 w-14 -translate-x-1/2 bg-earth" />
-            <Photo src={c.ending.photo} alt="us" className="aspect-square w-full" />
-            <p className="mt-3 font-hand text-xl">{c.his} & {c.her}</p>
-          </div>
+        <div className="flex justify-center">
           <div className="page relative w-48 -rotate-2 bg-card p-2 pb-10">
-            <div className="washi absolute -top-3 left-1/2 h-5 w-14 -translate-x-1/2 bg-sage" />
-            <Photo src={c.ending.photo2} alt="us under the tree" className="aspect-square w-full" />
-            <p className="mt-3 font-hand text-xl">{c.ending.photo2caption}</p>
+            <div className="washi absolute -top-3 left-1/2 h-5 w-14 -translate-x-1/2 bg-earth" />
+            <Photo src={c.ending.photo} alt="us under the tree" className="aspect-square w-full" />
+            <p className="mt-3 font-hand text-xl">Sumanth & Supritha</p>
           </div>
         </div>
       </Reveal>
