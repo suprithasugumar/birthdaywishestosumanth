@@ -82,6 +82,13 @@
   html { scroll-behavior: smooth; }
   body {
     background-color: var(--color-background);
+    background-image:
+      radial-gradient(ellipse 60% 45% at 12% 8%, color-mix(in oklab, var(--note-pink) 70%, transparent), transparent),
+      radial-gradient(ellipse 55% 40% at 88% 22%, color-mix(in oklab, var(--note-blue) 65%, transparent), transparent),
+      radial-gradient(ellipse 60% 45% at 8% 55%, color-mix(in oklab, var(--note-yellow) 60%, transparent), transparent),
+      radial-gradient(ellipse 55% 40% at 90% 72%, color-mix(in oklab, var(--note-green) 65%, transparent), transparent),
+      radial-gradient(ellipse 70% 50% at 50% 100%, color-mix(in oklab, var(--sun) 14%, transparent), transparent);
+    background-attachment: fixed;
     color: var(--color-foreground);
     font-family: var(--font-sans);
     -webkit-tap-highlight-color: transparent;
